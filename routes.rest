@@ -24,3 +24,25 @@ DELETE http://localhost:3000/notes/68f15e5715ce7ddac5ed36c0
 
 // DEPLOYED TESTING URLS
 ###
+GET https://cse-341-notes-api.onrender.com/notes
+###
+POST https://cse-341-notes-api.onrender.com/notes
+Content-Type: application/json
+
+{
+  "title": "Sample Note",
+  "note": "This is a sample note."
+}
+###
+GET https://cse-341-notes-api.onrender.com/notes/68f169fc450835309894563c
+### 
+PUT https://cse-341-notes-api.onrender.com/notes/68f169fc450835309894563c
+Content-Type: application/json
+
+{
+  "title": "Updated Sample Note",
+  "note": "This is an updated sample note."
+}   
+###
+DELETE https://cse-341-notes-api.onrender.com/notes/68f169fc450835309894563c
+###
