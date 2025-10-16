@@ -1,0 +1,26 @@
+// LOCALHOST TESTING URLS
+###
+GET http://localhost:3000/notes
+###
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+  "title": "Sample Note",
+  "note": "This is a sample note."
+}
+###
+GET http://localhost:3000/notes/68f15e5715ce7ddac5ed36c0
+###
+PUT http://localhost:3000/notes/68f15e5715ce7ddac5ed36c0
+Content-Type: application/json
+
+{
+  "title": "Updated Sample Note",
+  "note": "This is an updated sample note."
+}
+###
+DELETE http://localhost:3000/notes/68f15e5715ce7ddac5ed36c0
+
+// DEPLOYED TESTING URLS
+###
