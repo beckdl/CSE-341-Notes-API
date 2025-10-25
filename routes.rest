@@ -55,19 +55,19 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "firstName": "John",
-  "lastName": "Doe",
+  "firstName": "Daniel",
+  "lastName": "Beck",
   "email": "email@email.com",
-  "password": "P4ssword#123",
-  "favColor": "blue",
-  "age": 30,
-  "phone": "1234567890"
+  "password": "P4ssw0rd#123",
+  "favColor": "white",
+  "age": 29,
+  "phone": "1235467890"
 }
 
 ###
-GET http://localhost:3000/users/68fc15a23ff8e2de67008063
+GET http://localhost:3000/users/68fc1d02facf7b3825d8487b
 ###
-PUT http://localhost:3000/users/68fc15a23ff8e2de67008063
+PUT http://localhost:3000/users/68fc1d02facf7b3825d8487b
 Content-Type: application/json
 
 {
@@ -81,7 +81,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/users/68f15e5715ce7ddac5ed36c0
+DELETE http://localhost:3000/users/68fc1d02facf7b3825d8487b
 ###
 
 // DEPLOYED TESTING URLS FOR USERS ROUTE
@@ -92,13 +92,13 @@ POST https://cse-341-notes-api.onrender.com/users
 Content-Type: application/json
 
 {
-  "firstName": "John",
-  "lastName": "Doe",
+  "firstName": "Daniel",
+  "lastName": "Beck",
   "email": "email@email.com",
-  "password": "P4ssword123",
-  "favColor": "blue",
-  "age": 30,
-  "phone": "1234567890"
+  "password": "P4ssw0rd#123",
+  "favColor": "white",
+  "age": 29,
+  "phone": "1235467890"
 }
 ###
 GET https://cse-341-notes-api.onrender.com/users/68f169fc450835309894563c
@@ -110,7 +110,7 @@ Content-Type: application/json
   "firstName": "Jane",
   "lastName": "Doe",
   "email": "email@email.com",
-  "password": "NewP4ssword123",
+  "password": "NewP4ssword#123",
   "favColor": "red",
   "age": 28,
   "phone": "0987654321"
