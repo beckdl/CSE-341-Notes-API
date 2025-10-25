@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const notesController = require('../controllers/notes');
+const validate = require('../validation/validate.js')
 
 router.get('/', notesController.getAllNotes);
-router.post('/', notesController.createNote);
+router.post('/', validate.saveNote, notesController.createNote);
 router.get('/:id', notesController.getNoteById);
-router.put('/:id', notesController.updateNoteById);
-router.delete('/:id', notesController.deleteNoteById);
+router.put('/:id', validate.saveNote, notesController.updateNoteById);
+router.delete('/:id', validate.saveNote, notesController.deleteNoteById);
 
 module.exports = router;

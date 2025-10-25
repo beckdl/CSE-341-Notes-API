@@ -2,11 +2,14 @@ const router = require('express').Router();
 const notesRoutes = require('./notes');
 const baseController = require('../controllers');
 const swagger = require('./swagger');
+const usersRoutes = require('./users');
 
 router.get('/', baseController.welcome);
 
 router.use('/notes', notesRoutes);
 
 router.use('/api-docs', swagger);
+
+router.use('/users', usersRoutes);
 
 module.exports = router;
