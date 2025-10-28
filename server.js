@@ -6,10 +6,12 @@ const bodyParser = require('body-parser');
 const { auth, requiredScopes } = require('express-oauth2-jwt-bearer');
 const token = require('./utils/auth');
 const axios = require('axios');
+const domain = process.env.AUTH0_DOMAIN;
+const auth0Token = process.env.AUTH0_TOKEN;
 
 const jwtCheck = auth({
   audience: 'https://cse-341-notes-api.onrender.com',
-  issuerBaseURL: 'https://dev-0o2a64jccu2dayz1.us.auth0.com/',
+  issuerBaseURL: domain,
   tokenSigningAlg: 'RS256'
 });
 
@@ -20,7 +22,7 @@ app.use(jwtCheck);
 const options = { 
   method: "GET",
   url: "https://cse-341-notes-api.onrender.com",
-  headers: { "authorization": "Bearer TOKEN" },
+  headers: { "authorization": auth0Token},
 };
 
 axios(options)
