@@ -3,43 +3,18 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const mongodb = require('./database/db');   
 const bodyParser = require('body-parser');
-const { auth, requiredScopes } = require('express-oauth2-jwt-bearer');
-const token = require('./utils/auth');
-const axios = require('axios');
-const domain = process.env.AUTH0_DOMAIN;
-const auth0Token = process.env.AUTH0_TOKEN;
+const { auth, requiresAuth } = require('express-openid-connect');
 
-const jwtCheck = auth({
-  audience: 'https://cse-341-notes-api.onrender.com',
-  issuerBaseURL: domain,
-  tokenSigningAlg: 'RS256'
-});
-
-token.getToken();
-
-app.use(jwtCheck);
-
-const options = { 
-  method: "GET",
-  url: "https://cse-341-notes-api.onrender.com",
-  headers: { "authorization": auth0Token},
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: process.env.SECRET,
+    baseURL: process.env.BASE_URL,
+    clientID: process.env.CLIENT_ID,
+    issuerBaseURL: process.env.ISSUER_BASE_URL,
 };
 
-axios(options)
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.log(error);
-  });
-
-app.get('/public', (req, res) => {
-  res.send('Public route, no authentication required.');
-});
-
-app.get('/private', requiredScopes('read:messages'), (req, res) => {
-  res.send('Private route, authentication and scope "read:messages" required.');
-});
+app.use(auth(config));
 
 app
 .use(bodyParser.json())

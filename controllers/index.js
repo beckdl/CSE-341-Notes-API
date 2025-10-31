@@ -1,5 +1,5 @@
 const welcome = (req, res) => {
-  res.send('Welcome to the Notes API! To get started go to /notes. To get to Swagger, go to /api-docs');
+  res.send(req.oidc.isAuthenticated() ? 'Thank you for logging in, you can now navigate to all other links.' : 'You are logged out. Please go to /login to log in and access more links.');
 }
 
 module.exports = {

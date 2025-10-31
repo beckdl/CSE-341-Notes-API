@@ -1,15 +1,16 @@
 const router = require('express').Router();
-const notesRoutes = require('./notes');
 const baseController = require('../controllers');
+const notesRoutes = require('./notes');
 const swagger = require('./swagger');
 const usersRoutes = require('./users');
+const { requiresAuth } = require('express-openid-connect');
 
 router.get('/', baseController.welcome);
 
-router.use('/notes', notesRoutes);
+router.use('/notes', requiresAuth(), notesRoutes);
 
-router.use('/api-docs', swagger);
+router.use('/api-docs', requiresAuth(), swagger);
 
-router.use('/users', usersRoutes);
+router.use('/users', requiresAuth(), usersRoutes);
 
 module.exports = router;
