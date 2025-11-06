@@ -13,4 +13,5 @@ router.use('/api-docs', requiresAuth(), swagger);
 
 router.use('/users', requiresAuth(), usersRoutes);
 
+
 module.exports = router;
